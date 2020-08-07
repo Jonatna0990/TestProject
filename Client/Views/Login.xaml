@@ -1,0 +1,19 @@
+﻿<Window x:Class="Client.Views.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client.Views"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        DataContext="{Binding Source={StaticResource Locator},Path=Auth}"
+        Title="Авторизация" Height="250" Width="400">
+    <Grid>
+        <StackPanel  VerticalAlignment="Center">
+            <TextBlock Margin="5" Text="Логин"></TextBlock>
+            <TextBox Text="{Binding Path=user.login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5"/>
+            <TextBlock Margin="5" Text="Пароль"></TextBlock>
+            <TextBox Text="{Binding Path=user.pass, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5"/>
+            <Button Command="{Binding LoginCommand}" Margin="5,15" Content="Войти"></Button>
+        </StackPanel>
+    </Grid>
+</Window>

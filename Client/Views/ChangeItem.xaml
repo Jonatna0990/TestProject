@@ -1,0 +1,26 @@
+﻿<Window x:Class="Client.Views.ChangeItem"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client.Views"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="Добавить номенклатуру"  Height="250" Width="350">
+    <Grid Margin="20">
+        <StackPanel>
+        <TextBlock Text="Имя"/>
+        <TextBox Text="{Binding nomenclature.name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="Цена"/>
+        <TextBox Text="{Binding nomenclature.price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="Дата от"/>
+            <xctk:DateTimePicker Value="{Binding nomenclature.fromDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="Дата до"/>
+            <xctk:DateTimePicker Value="{Binding nomenclature.toDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+        <Grid VerticalAlignment="Bottom">
+            <Button HorizontalAlignment="Left"  Command="{Binding AddCommand}" Click="ButtonBase_OnClick" Content="Сохранить"></Button>
+            <Button HorizontalAlignment="Right" Click="ButtonBase_OnClick"  Content="Отмена"></Button>
+        </Grid>
+    </Grid>
+</Window>
